@@ -18,32 +18,85 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = UIColor.white
-//        self.window?.rootViewController = 
+//        self.window?.rootViewController =
+        //设置导航栏和标签栏样式
+        setUpBarStyle();
+        
+        //欢迎导航页面
+        showWelcome();
 
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    
+    func setUpBarStyle(){
+        
+        /**
+         *  导航栏样式
+         */
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "Heiti SC", size: 18.0)!]
+        UINavigationBar.appearance().barTintColor = UIColor.red
+        
+        /**
+         *  底部TabBar的颜色
+         */
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().tintColor = UIColor.red
+        UITabBar.appearance().backgroundColor = UIColor.white
+        UITabBar.appearance().barTintColor = UIColor.green
+        //        UITabBar.appearance().selectedImageTintColor = UIColor.clearColor()
+        
+        /**
+         *  底部TabBar字体正常状态颜色
+         */
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)], for: UIControlState.normal)
+        
+        /**
+         *  底部TabBar字体选择状态颜色
+         */
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.red, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)], for: UIControlState.selected)
+        
+    }
+    
+    //  MARK: - 欢迎界面
+    func showWelcome() {
+        
+        /**
+//         *  判断欢迎界面是否已经执行
+//         */
+//
+//        let userDefault = UserDefaults.standard
+//        let appVersion: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+//
+//
+//        if (userDefault.string(forKey: Constants.HDAppVersion)) == nil {
+//
+//            //第一次进入
+//            userDefault.setValue(appVersion, forKey: Constants.HDAppVersion)
+//            userDefault.synchronize()
+//            self.window?.rootViewController = WelcomeController()
+//
+//        } else {
+//
+//            //版本升级后，根据版本号来判断是否进入
+//            let version: String = (userDefault.string(forKey: Constants.HDAppVersion))!
+//            if ( appVersion == version) {
+        
+                //                UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+                self.window?.rootViewController = MainViewController()
+                
+//            } else {
+//
+//                userDefault.setValue(appVersion, forKey: Constants.HDAppVersion)
+//                userDefault.synchronize()
+//                self.window?.rootViewController = WelcomeController()
+//
+//            }
+        
+//        }
+        
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
 
 
 }
