@@ -1,0 +1,6 @@
+framework module Pods_SwiftExperince {
+  umbrella header "Pods-SwiftExperince-umbrella.h"
+
+  export *
+  module * { export * }
+}
