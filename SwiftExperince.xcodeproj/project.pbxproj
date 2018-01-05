@@ -90,6 +90,7 @@
 		47BA56521FFBBFA1008A1FDE /* SwiftExperince */ = {
 			isa = PBXGroup;
 			children = (
+				47C2201F1FFFB2A10089AACA /* Core */,
 				4770DE9E1FFD241F00CAEE46 /* Controllers */,
 				47BA56681FFBDD34008A1FDE /* General */,
 				47BA56651FFBC08B008A1FDE /* Main */,
@@ -128,6 +129,13 @@
 				47BA56701FFBDFBF008A1FDE /* HDCoreUtils.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		47C2201F1FFFB2A10089AACA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
